@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --bg-app: #0d1117;
+  --bg-panel: #131826;
+  --bg-panel-raised: #171d2e;
+  --border-subtle: #232b3d;
+  --border-strong: #2f3850;
+
+  --text-primary: #e7eaf3;
+  --text-secondary: #9aa4bf;
+  --text-muted: #5e6684;
+
+  --accent-yellow: #ecad0a;
+  --accent-blue: #209dd7;
+  --accent-purple: #753991;
+
+  --up: #2fd67a;
+  --up-dim: rgba(47, 214, 122, 0.16);
+  --down: #ff5470;
+  --down-dim: rgba(255, 84, 112, 0.16);
+}
+
+@theme inline {
+  --color-bg-app: var(--bg-app);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-panel-raised: var(--bg-panel-raised);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+
+  --color-up: var(--up);
+  --color-up-dim: var(--up-dim);
+  --color-down: var(--down);
+  --color-down-dim: var(--down-dim);
+
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent-blue);
+  color: #061019;
+}
+
+* {
+  scrollbar-color: var(--border-strong) transparent;
+  scrollbar-width: thin;
+}
+
+@keyframes flash-up {
+  0% {
+    background-color: var(--up-dim);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-down {
+  0% {
+    background-color: var(--down-dim);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-up {
+  animation: flash-up 550ms ease-out;
+}
+
+.flash-down {
+  animation: flash-down 550ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-up,
+  .flash-down {
+    animation: none;
+  }
+}
